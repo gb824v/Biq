@@ -1,6 +1,5 @@
 package com.att.biq.day22.db;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +17,7 @@ public abstract class DbBase {
 	Connection conn = null;
 	Statement stmt = null;
 
-	public DbBase() throws SQLException, InvalidPropertiesFormatException, FileNotFoundException, IOException {
+	public DbBase() throws IOException {
 		getProperties();
 	}
 
@@ -26,9 +25,13 @@ public abstract class DbBase {
 		return conn;
 	}
 
-	private void getProperties() throws SQLException, InvalidPropertiesFormatException, FileNotFoundException, IOException {
+	public Connection connect() throws SQLException{
+		return ds.getConnection();
+	}
+
+	private void getProperties() throws IOException {
 		ds = new MysqlDataSource();
-		InputStream is= Thread.currentThread().getContextClassLoader().getResourceAsStream("properties.xml");
+		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("properties.xml");
 		Properties dbProps = new Properties();
 		dbProps.loadFromXML(is);
 		ds.setServerName(dbProps.getProperty("serverName"));
@@ -36,6 +39,5 @@ public abstract class DbBase {
 		ds.setDatabaseName(dbProps.getProperty("dbName"));
 		ds.setUser(dbProps.getProperty("user"));
 		ds.setPassword(dbProps.getProperty("password"));
-		conn = ds.getConnection();
 	}
 }

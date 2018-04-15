@@ -14,6 +14,7 @@ public class MyDataBase extends DbBase
 	public static void main(String[] args) throws IOException, SQLException
 	{
 		MyDataBase myDb = new MyDataBase();
+		myDb.connect();
 		
 	}
 	
