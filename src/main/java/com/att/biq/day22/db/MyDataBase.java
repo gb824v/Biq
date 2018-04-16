@@ -16,7 +16,7 @@ public class MyDataBase extends DbBase {
 		MyDataBase myDb = new MyDataBase();
 		Connection con = myDb.connect();
 		Chains chain = new Chains(con);
-		chain.createChain("Sony","Electric");
+		chain.getChain("Fox");
 
 	}
 
