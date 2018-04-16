@@ -3,6 +3,9 @@ package com.att.biq.day22.db;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import com.mysql.jdbc.Connection;
+
+
 public class MyDataBase extends DbBase {
 
 	public MyDataBase() throws IOException {
@@ -11,7 +14,9 @@ public class MyDataBase extends DbBase {
 
 	public static void main(String[] args) throws IOException, SQLException {
 		MyDataBase myDb = new MyDataBase();
-		myDb.connect();
+		Connection con = myDb.connect();
+		Chains chain = new Chains(con);
+		chain.createChain("Sony","Electric");
 
 	}
 

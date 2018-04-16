@@ -2,11 +2,11 @@ package com.att.biq.day22.db;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public abstract class DbBase {
@@ -32,7 +32,7 @@ public abstract class DbBase {
 	}
 
 	public Connection connect() throws SQLException, IOException{
-		return ds.getConnection();
+		return (Connection) ds.getConnection();
 	}
 
 }
