@@ -12,7 +12,8 @@ public class Main
 		String msg = "";
 		while (!msg.equals("stop"))
 		{
-			System.out.println("Enter your string...");
+			System.out.println("Enter your group/chain");
+			
 			msg = sc.nextLine();
 		}
 		sc.close();
