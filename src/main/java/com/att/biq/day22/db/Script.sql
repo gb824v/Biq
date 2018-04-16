@@ -40,7 +40,8 @@ CREATE TABLE `Groups` (
   `group_id` int NOT NULL,
    PRIMARY KEY (group_id),
   `group_name` varchar(255) DEFAULT NULL,
-  `group_type` varchar(255) DEFAULT NULL
+  `group_type` varchar(255) DEFAULT NULL,
+  `group_parent_id` int NOT null
 );
 
 INSERT INTO Groups VALUES (100, 'Fox', '55');
@@ -51,6 +52,7 @@ CREATE TABLE `Malls` (
    PRIMARY KEY (mall_id),
   `mall_name` varchar(255) DEFAULT NULL,
   `address_id` int NOT null,
+  `mall_group_id` int NOT null,
   FOREIGN KEY (address_id) REFERENCES Addresses(address_id)
 );
 

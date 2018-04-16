@@ -1,12 +1,10 @@
 package com.att.biq.day22.db;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
