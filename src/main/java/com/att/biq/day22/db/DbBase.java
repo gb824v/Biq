@@ -15,19 +15,7 @@ public abstract class DbBase {
 	Connection conn = null;
 	Statement stmt = null;
 
-	public DbBase() throws IOException {
-		getProperties();
-	}
-
-	public Connection getConn() {
-		return conn;
-	}
-
-	public Connection connect() throws SQLException{
-		return ds.getConnection();
-	}
-
-	private void getProperties() throws IOException {
+	public DbBase() throws  IOException {
 		ds = new MysqlDataSource();
 		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("properties.xml");
 		Properties dbProps = new Properties();
@@ -38,4 +26,13 @@ public abstract class DbBase {
 		ds.setUser(dbProps.getProperty("user"));
 		ds.setPassword(dbProps.getProperty("password"));
 	}
+
+	public Connection getConn() {
+		return conn;
+	}
+
+	public Connection connect() throws SQLException, IOException{
+		return ds.getConnection();
+	}
+
 }
