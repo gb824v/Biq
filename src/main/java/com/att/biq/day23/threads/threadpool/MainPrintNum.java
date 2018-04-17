@@ -3,12 +3,10 @@ package com.att.biq.day23.threads.threadpool;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-
 public class MainPrintNum {
 	private static int numOfTasks = 5;
 	private static int numOfThreads = 5;
-	
+
 	static public synchronized void printNumbers() {
 		for (int i = 0; i < numOfTasks; i++) {
 			System.out.println("ThreadId:" + Thread.currentThread().getId() + " Session:" + i);
@@ -21,7 +19,7 @@ public class MainPrintNum {
 			Worker worker = new Worker();
 			executor.execute(worker);
 		}
-		executor.shutdown(); //When the workers finished shoutdown
+		executor.shutdown(); // When all workers finished, shutdown
 		while (!executor.isTerminated()) {
 		}
 		System.out.println("Done !!!");
