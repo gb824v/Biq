@@ -11,5 +11,8 @@ public class Main
 		Thread decThread = new Thread(new DecThread(atomic));
 		incThread.start();
 		decThread.start();
+		incThread.join();
+		decThread.join();
+		System.out.println(atomic.getCount());
 	}
 }
