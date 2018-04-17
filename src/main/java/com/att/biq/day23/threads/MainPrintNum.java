@@ -1,6 +1,6 @@
 package com.att.biq.day23.threads;
 
-public class PrintNumbers
+public class MainPrintNum
 {
 	static public synchronized void printNumbers()
 	{
