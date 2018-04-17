@@ -1,4 +1,4 @@
-package com.att.biq.day23.threads.myatomic;
+package com.att.biq.day23.threads.myatomicvar;
 
 
 public class DecThread  implements Runnable {
