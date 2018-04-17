@@ -1,4 +1,4 @@
-package com.att.biq.day23.threads.atomicvar;
+package com.att.biq.day23.threads.atomicInteger;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
