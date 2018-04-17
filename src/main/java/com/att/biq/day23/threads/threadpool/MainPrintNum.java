@@ -1,0 +1,29 @@
+package com.att.biq.day23.threads.threadpool;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
+
+public class MainPrintNum {
+	private static int numOfSession = 5;
+	private static int numOfThreads = 5;
+	
+	static public synchronized void printNumbers() {
+		for (int i = 0; i < numOfSession; i++) {
+			System.out.println("ThreadId:" + Thread.currentThread().getId() + " Session:" + i);
+		}
+	}
+
+	static public void main(String[] args) {
+		ExecutorService executor = Executors.newFixedThreadPool(5);
+		for (int i = 0; i < numOfThreads; i++) {
+			Worker worker = new Worker();
+			executor.execute(worker);
+		}
+		executor.shutdown();
+		while (!executor.isTerminated()) {
+		}
+		System.out.println("Finished all threads");
+	}
+}
