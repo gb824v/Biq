@@ -10,22 +10,13 @@ CREATE TABLE `Addresses` (
 INSERT INTO Addresses VALUES (1, 'ashkelon', 'ziyonut', 76812);
 INSERT INTO Addresses VALUES (2, 'Tell Aviv', 'KK', 76812);
 
-CREATE TABLE `Chains` (
-  `chain_id` int NOT NULL,
-   PRIMARY KEY (chain_id),
-  `chain_name` varchar(255) DEFAULT NULL,
-  `chain_type` varchar(255) DEFAULT NULL
-);
-
-INSERT INTO Chains VALUES (100, 'Fox',"Clothes");
-
 CREATE TABLE `Stores` (
   `stores_id` int NOT NULL,
    PRIMARY KEY (stores_id),
   `store_name` varchar(255) DEFAULT NULL,
   `address_id` int NOT NULL,
-  `chain_id` int NOT null,
-  FOREIGN KEY (chain_id) REFERENCES Chains(chain_id)
+  `group_id` int NOT null,
+  FOREIGN KEY (group_id) REFERENCES Groups(group_id)
 );
 
 INSERT INTO Stores VALUES (1000, 'Fox Home',2, 100);
@@ -37,7 +28,9 @@ CREATE TABLE `Employees` (
   `last_name` varchar(255) DEFAULT NULL,
   `age` int NOT NULL,
   `stores_id` int NOT null,
-  FOREIGN KEY (stores_id) REFERENCES Stores(stores_id)
+  `group_id` int NOT null,
+  FOREIGN KEY (stores_id) REFERENCES Stores(stores_id),
+  FOREIGN KEY (group_id) REFERENCES Groups(group_id)
 );
 
 INSERT INTO Employees VALUES (10, 'Guy', 'Bitan', 40,1000);
@@ -53,3 +46,27 @@ CREATE TABLE `Malls` (
 );
 
 INSERT INTO Malls VALUES (10000, 'Azriely',2);
+
+CREATE TABLE `Cities` (
+  `city_id` int NOT NULL,
+  `city_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (city_id)
+);
+INSERT INTO Cities VALUES (5000, 'Tel-Aviv');
+
+CREATE TABLE `Streets` (
+  `street_id` int NOT NULL,
+  `street_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (street_id)
+);
+INSERT INTO Streets VALUES (6000, 'Ben-Yehuda');
+
+CREATE TABLE `Groups` (
+  `group_id` int NOT NULL,
+   PRIMARY KEY (group_id),
+  `parent_group_id` int,
+  `group_name` varchar(255) DEFAULT NULL,
+  `group_type` varchar(255),
+);
+
+INSERT INTO Groups VALUES (100, 'Fox',"Clothes");
