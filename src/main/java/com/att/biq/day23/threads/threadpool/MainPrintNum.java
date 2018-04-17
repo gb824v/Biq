@@ -6,11 +6,11 @@ import java.util.concurrent.Executors;
 
 
 public class MainPrintNum {
-	private static int numOfSession = 5;
+	private static int numOfTasks = 5;
 	private static int numOfThreads = 5;
 	
 	static public synchronized void printNumbers() {
-		for (int i = 0; i < numOfSession; i++) {
+		for (int i = 0; i < numOfTasks; i++) {
 			System.out.println("ThreadId:" + Thread.currentThread().getId() + " Session:" + i);
 		}
 	}
@@ -21,9 +21,9 @@ public class MainPrintNum {
 			Worker worker = new Worker();
 			executor.execute(worker);
 		}
-		executor.shutdown();
+		executor.shutdown(); //When the workers finished shoutdown
 		while (!executor.isTerminated()) {
 		}
-		System.out.println("Finished all threads");
+		System.out.println("Done !!!");
 	}
 }
