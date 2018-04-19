@@ -1,5 +1,9 @@
 package com.att.biq.day22.db;
-
+/**
+ * 
+ * @author Guy Bitan
+ *
+ */
 public class Menu
 {
 	public static String inputFile = "";
