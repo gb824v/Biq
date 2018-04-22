@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ThreadLocalOcurence implements Runnable
+public class FileIndexer implements Runnable
 {
 	private ThreadLocal<Map<String, Integer>> threadLocal = new ThreadLocal<Map<String, Integer>>();
 	private Map<String, Integer> charCounter;
 	private String filePath;
 
-	public ThreadLocalOcurence(Map<String, Integer> charCounter, String filePath)
+	public FileIndexer(Map<String, Integer> charCounter, String filePath)
 	{
 		this.filePath = filePath;
 		this.charCounter = charCounter;
@@ -57,8 +57,8 @@ public class ThreadLocalOcurence implements Runnable
 	{
 		Map<String, Integer> charCounter = new HashMap<String, Integer>();
 
-		ThreadLocalOcurence sharedRunnableInstance1 = new ThreadLocalOcurence(charCounter, "c:\\NumOfOc1.txt");
-		ThreadLocalOcurence sharedRunnableInstance2 = new ThreadLocalOcurence(charCounter, "c:\\NumOfOc2.txt");
+		FileIndexer sharedRunnableInstance1 = new FileIndexer(charCounter, "c:\\NumOfOc1.txt");
+		FileIndexer sharedRunnableInstance2 = new FileIndexer(charCounter, "c:\\NumOfOc2.txt");
 
 		Thread thread1 = new Thread(sharedRunnableInstance1);
 		Thread thread2 = new Thread(sharedRunnableInstance2);
