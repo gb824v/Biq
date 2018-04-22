@@ -8,6 +8,7 @@ public class MainPrintNum
 	private static int numOfTasks = 5;
 	private static int numOfThreads = 5;
 
+	//All threads call this function
 	static public synchronized void printNumbers()
 	{
 		for (int i = 0; i < numOfTasks; i++)
