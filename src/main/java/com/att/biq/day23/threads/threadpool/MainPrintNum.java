@@ -12,14 +12,14 @@ public class MainPrintNum
 	{
 		for (int i = 0; i < numOfTasks; i++)
 		{
-			System.out.println("ThreadId:" + Thread.currentThread().getId() + " Session:" + i);
+			System.out.println("ThreadId:" + Thread.currentThread().getId() + " Task:" + i);
 		}
 	}
 
 	static public void main(String[] args)
 	{
 		ExecutorService executor = Executors.newFixedThreadPool(numOfThreads);
-		
+
 		for (int i = 0; i < numOfTasks; i++)
 		{
 			Worker worker = new Worker();
