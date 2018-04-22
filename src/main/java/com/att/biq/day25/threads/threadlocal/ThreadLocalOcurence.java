@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class ThreadLocalOcurence implements Runnable
 {
-
 	private ThreadLocal<Map<String, Integer>> threadLocal = new ThreadLocal<Map<String, Integer>>();
 	private Map<String, Integer> charCounter;
 	private String filePath;
@@ -24,7 +23,6 @@ public class ThreadLocalOcurence implements Runnable
 	public void run()
 	{
 		threadLocal.set(charCounter);
-
 		try (BufferedReader br = new BufferedReader(new FileReader(filePath)))
 		{
 			readNumOfOcurence(br);
