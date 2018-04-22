@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FileIndexer implements Runnable
+public class FileFrequencer implements Runnable
 {
 	private ThreadLocal<Map<String, Integer>> threadLocal = new ThreadLocal<Map<String, Integer>>();
 	private Map<String, Integer> charCounter;
 	private String filePath;
 
-	public FileIndexer(Map<String, Integer> charCounter, String filePath)
+	public FileFrequencer(Map<String, Integer> charCounter, String filePath)
 	{
 		this.filePath = filePath;
 		this.charCounter = charCounter;
@@ -57,8 +57,8 @@ public class FileIndexer implements Runnable
 	{
 		Map<String, Integer> charCounter = new HashMap<String, Integer>();
 
-		FileIndexer sharedRunnableInstance1 = new FileIndexer(charCounter, "c:\\NumOfOc1.txt");
-		FileIndexer sharedRunnableInstance2 = new FileIndexer(charCounter, "c:\\NumOfOc2.txt");
+		FileFrequencer sharedRunnableInstance1 = new FileFrequencer(charCounter, "c:\\NumOfOc1.txt");
+		FileFrequencer sharedRunnableInstance2 = new FileFrequencer(charCounter, "c:\\NumOfOc2.txt");
 
 		Thread thread1 = new Thread(sharedRunnableInstance1);
 		Thread thread2 = new Thread(sharedRunnableInstance2);
