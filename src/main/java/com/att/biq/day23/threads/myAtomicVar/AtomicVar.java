@@ -1,4 +1,4 @@
-package com.att.biq.day23.threads.myatomicvar;
+package com.att.biq.day23.threads.myAtomicVar;
 
 public class AtomicVar
 {
