@@ -40,7 +40,7 @@ public class FileFrequencer implements Runnable
 
 		while ((temp = br.readLine()) != null)
 		{
-			String[] spliter = temp.split(" ");
+			String[] spliter = temp.split("\\s+");
 			for (String temp1 : spliter)
 				if (charCounter.containsKey(temp1))
 				{
