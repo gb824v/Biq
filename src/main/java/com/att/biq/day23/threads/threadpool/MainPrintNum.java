@@ -21,7 +21,7 @@ public class MainPrintNum
 	{
 		ExecutorService executor = Executors.newFixedThreadPool(numOfThreads);
 
-		for (int i = 0; i < numOfTasks; i++)
+		for (int i = 0; i < numOfThreads; i++)
 		{
 			Worker worker = new Worker();
 			executor.execute(worker);
