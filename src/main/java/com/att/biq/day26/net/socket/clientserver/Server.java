@@ -11,7 +11,7 @@ public class Server
 {
 	public static void main(String[] args) throws IOException
 	{
-		Socket socket;
+		Socket socket = null;
 		ServerSocket server = new ServerSocket(7000);
 		String line = "";
 		try
@@ -27,6 +27,7 @@ public class Server
 				outputStream.println(line);
 				System.out.println(line);
 			}
+			socket.close();
 		}
 		catch (Exception e)
 		{

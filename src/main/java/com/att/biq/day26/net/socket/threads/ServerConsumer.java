@@ -16,17 +16,19 @@ public class ServerConsumer implements Runnable
 	public void run()
 	{
 		String line = "";
+		Socket socket =null;
 		try
 		{
-			Socket socket = server.accept();
+			socket = server.accept();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintStream outputStream = new PrintStream(socket.getOutputStream());
 			while (!line.equals("!"))
 			{
 				line = bufferedReader.readLine();
-				outputStream.println(line);
+				outputStream.println(Thread.currentThread().getName() + "-> " + line);
 				System.out.println(line);
 			}
+			socket.close();
 		}
 		catch (Exception e)
 		{
