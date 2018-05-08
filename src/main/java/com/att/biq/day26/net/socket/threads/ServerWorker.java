@@ -1,4 +1,4 @@
-package com.att.biq.day26.networking.socket;
+package com.att.biq.day26.net.socket.threads;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -6,19 +6,34 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class SimpleTCPEchoServer
+public class ServerWorker implements Runnable
 {
-	public static void main(String[] args) throws IOException
+	Socket socket = null;
+	ServerSocket server = null;
+
+	public ServerWorker()
 	{
-		Socket socket;
-		ServerSocket server = new ServerSocket(7000);
+		try
+		{
+			this.server = new ServerSocket(7000);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void run()
+	{
+
 		DataInputStream inputStream;
 		PrintStream outputStream;
 		String line = "";
 		try
 		{
-			socket = server.accept();
 			// blocking
+			socket = server.accept();
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new PrintStream(socket.getOutputStream());
 			while (!line.equals("!"))
@@ -33,4 +48,5 @@ public class SimpleTCPEchoServer
 			e.printStackTrace();
 		}
 	}
+
 }

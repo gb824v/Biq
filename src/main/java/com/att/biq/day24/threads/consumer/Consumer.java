@@ -8,7 +8,6 @@ public class Consumer implements Runnable
 	{
 		this.drop = drop;
 	}
-
 	@Override
 	public void run()
 	{

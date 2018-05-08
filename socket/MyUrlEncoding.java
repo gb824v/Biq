@@ -2,7 +2,6 @@ package com.att.biq.day26.networking.socket;
 
 import java.io.DataInputStream;
 import java.net.URL;
-import java.net.URLEncoder;
 
 public class MyUrlEncoding
 {
@@ -15,7 +14,7 @@ public class MyUrlEncoding
 			DataInputStream htmlPage = new DataInputStream(u.openStream());
 			while ((line = htmlPage.readUTF()) != null)
 			{
-				System.out.println(URLEncoder.encode(line, "UTF-8"));
+				System.out.println(line);
 			}
 		}
 		catch (Exception e)
