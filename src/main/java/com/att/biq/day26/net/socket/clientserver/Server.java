@@ -13,24 +13,27 @@ public class Server
 	{
 		Socket socket = null;
 		String line = "";
-		try (ServerSocket server = new ServerSocket(7000))
+		try (ServerSocket serverSoket = new ServerSocket(7000))
 		{
-			// blocking
-			socket = server.accept();
-
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			PrintStream outputStream = new PrintStream(socket.getOutputStream());
-			while (!line.equals("!"))
+			// Waiting to client to connect
+			socket = serverSoket.accept();
+			try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())))
 			{
-				line = bufferedReader.readLine();
-				System.out.println("Getting from Client: -> " + line);
-				outputStream.println("Sending to Client: -> " + line);
+				try (PrintStream outputStream = new PrintStream(socket.getOutputStream()))
+				{
+					while (!line.equals("!"))
+					{
+						line = bufferedReader.readLine();
+						System.out.println("Getting from Client: -> " + line);
+					  outputStream.println("Sending to Client: -> " + line);
+					}
+					socket.close();
+				}
 			}
-			socket.close();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 }

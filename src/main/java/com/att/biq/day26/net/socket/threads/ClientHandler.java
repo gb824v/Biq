@@ -23,7 +23,6 @@ public class ClientHandler extends Thread
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())))
 		{
 			PrintStream outputStream = new PrintStream(socket.getOutputStream());
-
 			while (!line.equals("!"))
 			{
 				line = bufferedReader.readLine();
@@ -34,7 +33,7 @@ public class ClientHandler extends Thread
 		}
 		catch (Exception e)
 		{
-			System.out.println("Client disconnect");
+			System.out.println("Client is disconnect !!!");
 		}
 		finally
 		{

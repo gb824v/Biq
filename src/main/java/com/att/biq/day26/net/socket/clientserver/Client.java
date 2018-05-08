@@ -14,18 +14,16 @@ public class Client
 	{
 		try (Socket socket = new Socket("localhost", 7000))
 		{
-			try (DataInputStream inputStream = new DataInputStream(socket.getInputStream()))
+			DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+			BufferedReader serverInput = new BufferedReader(new InputStreamReader(inputStream));
+			String line = "";
+			PrintStream outputStream = new PrintStream(socket.getOutputStream());
+			BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+			while (!line.equals("!"))
 			{
-				BufferedReader serverInput = new BufferedReader(new InputStreamReader(inputStream));
-				String line = "";
-				PrintStream outputStream = new PrintStream(socket.getOutputStream());
-				BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
-				while (!line.equals("!"))
-				{
-					line = userInput.readLine();
-					System.out.println("Sending to Server: " + line);
-					outputStream.println("Geting from Server: " + serverInput.readLine());
-				}
+				line = userInput.readLine();
+				System.out.println("Sending to Server: " + line);
+				outputStream.println("Geting from Server: " + serverInput.readLine());
 			}
 		}
 	}
