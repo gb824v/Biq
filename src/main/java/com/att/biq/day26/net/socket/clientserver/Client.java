@@ -1,7 +1,9 @@
 package com.att.biq.day26.net.socket.clientserver;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -16,7 +18,7 @@ public class Client
 			{
 				String line = "";
 				PrintStream outputStream = new PrintStream(socket.getOutputStream());
-				DataInputStream userInput = new DataInputStream(System.in);
+				BufferedReader userInput = new BufferedReader(new InputStreamReader (System.in));
 				while (!line.equals("!"))
 				{
 					line = userInput.readLine();

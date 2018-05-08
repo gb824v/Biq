@@ -1,6 +1,8 @@
 package com.att.biq.day26.net.socket.threads;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
@@ -15,10 +17,10 @@ public class ClientWorker implements Runnable
 			{
 				String line = "";
 				PrintStream outputStream = new PrintStream(socket.getOutputStream());
-				DataInputStream userInput = new DataInputStream(System.in);
+				BufferedReader userInput = new BufferedReader(new InputStreamReader (System.in));
 				while (!line.equals("!"))
 				{
-					line = userInput.readUTF();
+					line = userInput.readLine();
 					outputStream.println(line);
 				}
 				System.out.println(inputStream.readUTF());
