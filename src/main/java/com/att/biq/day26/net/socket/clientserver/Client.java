@@ -19,7 +19,7 @@ public class Client
 				DataInputStream userInput = new DataInputStream(System.in);
 				while (!line.equals("!"))
 				{
-					line = userInput.readUTF();
+					line = userInput.readLine();
 					outputStream.println(line);
 				}
 				System.out.println(inputStream.readUTF());
