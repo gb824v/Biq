@@ -1,15 +1,16 @@
 package com.att.biq.day26.net.socket.threads;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
-public class HandleClient implements Runnable
+public class ServerHandleClient implements Runnable
 {
 	Socket socket;
 
-	public HandleClient(Socket socket)
+	public ServerHandleClient(Socket socket)
 	{
 		this.socket = socket;
 	}
@@ -26,7 +27,7 @@ public class HandleClient implements Runnable
 			while (true)
 			{
 				line = bufferedReader.readLine();
-				String str = Thread.currentThread().getName() + " Get from Client: -> " + line;
+				String str = Thread.currentThread().getName() + " Getting from Client: -> " + line;
 				System.out.println(str);
 				str = Thread.currentThread().getName() + " Sending to Client: -> " + line;
 				outputStream.println(str);
@@ -35,7 +36,18 @@ public class HandleClient implements Runnable
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			System.out.println("Client disconnect");
+		}
+		finally
+		{
+			try
+			{
+				socket.close();
+			}
+			catch (IOException e)
+			{
+				// ignore
+			}
 		}
 	}
 }

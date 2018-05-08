@@ -24,8 +24,8 @@ public class Server
 			while (!line.equals("!"))
 			{
 				line = bufferedReader.readLine();
-				outputStream.println(line);
-				System.out.println(line);
+				System.out.println("Getting from Client: -> " + line);
+				outputStream.println("Sending to Client: -> " + line);
 			}
 			socket.close();
 		}

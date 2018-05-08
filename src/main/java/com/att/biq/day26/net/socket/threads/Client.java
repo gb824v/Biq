@@ -16,13 +16,15 @@ public class Client
 		{
 			try (DataInputStream inputStream = new DataInputStream(socket.getInputStream()))
 			{
+				BufferedReader serverInput = new BufferedReader(new InputStreamReader(inputStream));
 				String line = "";
 				PrintStream outputStream = new PrintStream(socket.getOutputStream());
-				BufferedReader userInput = new BufferedReader(new InputStreamReader (System.in));
+				BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
 				while (!line.equals("!"))
 				{
 					line = userInput.readLine();
-					outputStream.println(line);
+					System.out.println("Sending to Server: " + line);
+					outputStream.println("Geting from Server: " + serverInput.readLine());
 				}
 			}
 		}
