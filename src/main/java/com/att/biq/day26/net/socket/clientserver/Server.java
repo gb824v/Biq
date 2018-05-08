@@ -12,9 +12,8 @@ public class Server
 	public static void main(String[] args) throws IOException
 	{
 		Socket socket = null;
-		ServerSocket server = new ServerSocket(7000);
 		String line = "";
-		try
+		try (ServerSocket server = new ServerSocket(7000))
 		{
 			// blocking
 			socket = server.accept();

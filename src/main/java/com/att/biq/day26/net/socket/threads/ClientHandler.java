@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
-public class ServerHandleClient implements Runnable
+public class ClientHandler extends Thread
 {
 	Socket socket;
 
-	public ServerHandleClient(Socket socket)
+	public ClientHandler(Socket socket)
 	{
 		this.socket = socket;
 	}
@@ -20,17 +20,15 @@ public class ServerHandleClient implements Runnable
 	{
 		String line = "";
 
-		try
+		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())))
 		{
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintStream outputStream = new PrintStream(socket.getOutputStream());
-			while (true)
+
+			while (!line.equals("!"))
 			{
 				line = bufferedReader.readLine();
-				String str = Thread.currentThread().getName() + " Getting from Client: -> " + line;
-				System.out.println(str);
-				str = Thread.currentThread().getName() + " Sending to Client: -> " + line;
-				outputStream.println(str);
+				System.out.println(Thread.currentThread().getName() + " Getting from Client: -> " + line);
+				outputStream.println(Thread.currentThread().getName() + " Sending to Client: -> " + line);
 
 			}
 		}
