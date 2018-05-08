@@ -1,13 +1,16 @@
 package com.att.biq.day26.net.socket.threads;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
-public class ClientWorker implements Runnable
+public class Client
 {
-	@Override
-	public void run()
+	public static void main(String[] args) throws UnknownHostException, IOException
 	{
 		try (Socket socket = new Socket("localhost", 7000))
 		{
@@ -15,16 +18,14 @@ public class ClientWorker implements Runnable
 			{
 				String line = "";
 				PrintStream outputStream = new PrintStream(socket.getOutputStream());
-					line = "dsadasdasd";
+				BufferedReader userInput = new BufferedReader(new InputStreamReader (System.in));
+				while (!line.equals("!"))
+				{
+					line = userInput.readLine();
 					outputStream.println(line);
-					outputStream.println("!");
+				}
 				System.out.println(inputStream.readUTF());
 			}
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 }
