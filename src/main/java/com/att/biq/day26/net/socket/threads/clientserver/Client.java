@@ -1,4 +1,4 @@
-package com.att.biq.day26.net.socket.threads;
+package com.att.biq.day26.net.socket.threads.clientserver;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

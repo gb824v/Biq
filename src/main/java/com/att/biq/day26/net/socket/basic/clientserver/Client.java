@@ -1,4 +1,4 @@
-package com.att.biq.day26.net.socket.clientserver;
+package com.att.biq.day26.net.socket.basic.clientserver;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

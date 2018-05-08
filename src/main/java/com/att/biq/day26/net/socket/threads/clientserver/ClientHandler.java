@@ -1,4 +1,4 @@
-package com.att.biq.day26.net.socket.threads;
+package com.att.biq.day26.net.socket.threads.clientserver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,12 +20,12 @@ public class ClientHandler extends Thread
 	{
 		String line = "";
 
-		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())))
+		try (BufferedReader inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream())))
 		{
 			PrintStream outputStream = new PrintStream(socket.getOutputStream());
 			while (!line.equals("!"))
 			{
-				line = bufferedReader.readLine();
+				line = inputStream.readLine();
 				System.out.println(Thread.currentThread().getName() + " Getting from Client: -> " + line);
 				outputStream.println(Thread.currentThread().getName() + " Sending to Client: -> " + line);
 
