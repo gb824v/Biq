@@ -12,7 +12,7 @@ public class MainServer
 		while (true)
 		{
 			Socket socket = server.accept();
-			Thread thread = new Thread(new ClientHandle(socket));
+			Thread thread = new Thread(new HandleClient(socket));
 			thread.start();
 		}
 	}

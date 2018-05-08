@@ -5,11 +5,11 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
-public class ClientHandle implements Runnable
+public class HandleClient implements Runnable
 {
 	Socket socket;
 
-	public ClientHandle(Socket socket)
+	public HandleClient(Socket socket)
 	{
 		this.socket = socket;
 	}
