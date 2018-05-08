@@ -24,7 +24,6 @@ public class Client
 					line = userInput.readLine();
 					outputStream.println(line);
 				}
-				System.out.println(inputStream.readUTF());
 			}
 		}
 	}

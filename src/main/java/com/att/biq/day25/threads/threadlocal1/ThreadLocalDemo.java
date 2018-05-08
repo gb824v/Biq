@@ -8,6 +8,7 @@ public class ThreadLocalDemo implements Runnable
 	// threadlocal variable is created
 	private static final ThreadLocal<SimpleDateFormat> dateFormat = new ThreadLocal<SimpleDateFormat>()
 	{
+		
 		@Override
 		protected SimpleDateFormat initialValue()
 		{
