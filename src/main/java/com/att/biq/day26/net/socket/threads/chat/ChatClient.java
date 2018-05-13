@@ -1,4 +1,4 @@
-package sockets;
+package com.att.biq.day26.net.socket.threads.chat;
 
 import java.io.*;
 import java.net.Socket;
