@@ -1,9 +1,9 @@
 package com.att.biq.day27.advance.creator.number;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.att.biq.day27.advance.creator.CollectionCreator;
 
-import com.att.biq.day27.logging.examples.advance.creator.CollectionCreator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -13,10 +13,11 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class NumberCollectionCreator implements CollectionCreator<Integer> {
+public class NumberCollectionCreator implements CollectionCreator<Integer>
+{
 
     private static Logger log = LogManager.getLogger(
-			com.att.biq.day27.logging.examples.advance.creator.number.NumberCollectionCreator.class);
+			NumberCollectionCreator.class);
 
     private Random r = new Random();
 

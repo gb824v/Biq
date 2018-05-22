@@ -1,9 +1,9 @@
 package com.att.biq.day27.advance;
+import com.att.biq.day27.advance.creator.CollectionCreator;
+import com.att.biq.day27.advance.sort.SortCollection;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import com.att.biq.day27.logging.examples.advance.creator.CollectionCreator;
-import com.att.biq.day27.logging.examples.advance.sort.SortCollection;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public class MainSorter {
 
-    private static Logger log = LogManager.getLogger(com.att.biq.day27.logging.examples.advance.MainSorter.class);
+    private static Logger log = LogManager.getLogger(MainSorter.class);
 
     public static void main(String[] args) {
         CollectionCreator<Integer> intsCreator = CollectionCreator.get(Integer.class);
