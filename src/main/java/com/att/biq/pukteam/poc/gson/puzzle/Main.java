@@ -1,5 +1,7 @@
-package pukteam.poc.gson.puzzle;
+/*
+package com.att.biq.pukteam.poc.gson.puzzle;
 
+import com.att.biq.day13.recursion.puzzle.Puzzle;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -24,10 +26,10 @@ public class Main {
 
         Gson gson = new Gson();
 
-        List<Piece> pieces = new ArrayList<>();
-        pieces.add(new Piece(1, new int[] {0,0,0,0}));
-        pieces.add(new Piece(2, new int[] {0,1,-1,0}));
-        Puzzle puzzle = new Puzzle(new PuzzleDefinition(true, pieces));
+        List<pukteam.poc.gson.puzzle.Piece> pieces = new ArrayList<>();
+        pieces.add(new pukteam.poc.gson.puzzle.Piece(1, new int[] {0,0,0,0}));
+        pieces.add(new pukteam.poc.gson.puzzle.Piece(2, new int[] {0,1,-1,0}));
+        Puzzle puzzle = new Puzzle(new pukteam.poc.gson.puzzle.PuzzleDefinition(true, pieces));
         //Puzzle puzzle = gson.fromJson(puzlleAsJsonString, Puzzle.class);
         String s = gson.toJson(puzzle);
 
@@ -38,3 +40,4 @@ public class Main {
         System.out.println("From object to string: " + s);
     }
 }
+*/

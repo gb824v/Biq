@@ -15,7 +15,8 @@ public class EmployeeGuavaCacheUtil
 		empCache = CacheBuilder.newBuilder().maximumSize(100).expireAfterWrite(10, TimeUnit.MINUTES)
 				.build(new CacheLoader<Integer, Employee>()
 				{
-					@Override public Employee load(Integer id) throws Exception
+					@Override
+					public Employee load(Integer id) throws Exception
 					{
 						return getEmployeeById(id);
 					}

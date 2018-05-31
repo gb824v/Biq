@@ -1,4 +1,7 @@
-package pukteam.poc.gson.model;
+/*
+package com.att.biq.json.model;
+
+import com.att.biq.json.model.Gender;
 
 import java.util.List;
 import java.util.Set;
@@ -38,3 +41,4 @@ public class Data {
                 '}';
     }
 }
+*/

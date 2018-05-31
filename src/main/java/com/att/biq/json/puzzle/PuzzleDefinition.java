@@ -1,4 +1,4 @@
-package pukteam.poc.gson.puzzle;
+package com.att.biq.json.puzzle;
 
 import java.util.Collection;
 

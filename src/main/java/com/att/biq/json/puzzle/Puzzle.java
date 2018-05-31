@@ -1,9 +1,10 @@
-package pukteam.poc.gson.puzzle;
+/*
+package com.att.biq.json.puzzle;
 
 public class Puzzle {
-    private PuzzleDefinition puzzle;
+    private pukteam.poc.gson.puzzle.PuzzleDefinition puzzle;
 
-    public Puzzle(PuzzleDefinition puzzle) {
+    public Puzzle(pukteam.poc.gson.puzzle.PuzzleDefinition puzzle) {
         this.puzzle = puzzle;
     }
 
@@ -14,3 +15,4 @@ public class Puzzle {
                 '}';
     }
 }
+*/

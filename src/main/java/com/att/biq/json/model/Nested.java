@@ -1,4 +1,4 @@
-package pukteam.poc.gson.model;
+package com.att.biq.json.model;
 
 public class Nested {
 
