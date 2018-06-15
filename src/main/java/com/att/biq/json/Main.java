@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println("String -> Object: " + fromJson.toString());
         System.out.println("Original object to string: " + data.toString());
-        Type t = new TypeToken<List<Integer>>(){}.getType();
+        Type t = new TypeToken<List<Integer>>(){}.getLastName();
         JsonElement jsonElement = gson.toJsonTree(data);
         System.out.println(jsonElement.toString());
     }
